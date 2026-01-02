@@ -1,0 +1,12 @@
+
+GET localhost:9200/_cat/indices?v
+
+###
+GET localhost:9200/products/_mapping
+
+###
+
+GET localhost:9200/products/_search?pretty
+
+###
+DELETE localhost:9200/products

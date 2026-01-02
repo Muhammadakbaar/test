@@ -1,0 +1,48 @@
+basePath: /
+definitions:
+  product.Product:
+    properties:
+      company:
+        type: string
+      drug_generic:
+        type: string
+      id:
+        type: string
+      product_name:
+        type: string
+      score:
+        type: number
+    type: object
+host: localhost:8080
+info:
+  contact: {}
+  description: This is server for a product search service.
+  title: Product Search API
+  version: "1.0"
+paths:
+  /search:
+    get:
+      consumes:
+      - application/json
+      description: Search for products by product_name, drug_generic, or company
+      parameters:
+      - description: Search query
+        in: query
+        name: q
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              items:
+                $ref: '#/definitions/product.Product'
+              type: array
+            type: object
+      summary: Search for products
+      tags:
+      - products
+swagger: "2.0"
